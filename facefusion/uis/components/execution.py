@@ -2,7 +2,7 @@ from typing import List, Optional
 
 import gradio
 
-from facefusion import content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, state_manager, voice_extractor, wording
+from facefusion import face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, state_manager, voice_extractor, wording
 from facefusion.execution import get_available_execution_providers
 from facefusion.filesystem import get_file_name, resolve_file_paths
 from facefusion.processors.core import get_processors_modules
@@ -26,15 +26,14 @@ def listen() -> None:
 
 
 def update_execution_providers(execution_providers : List[ExecutionProvider]) -> gradio.CheckboxGroup:
-	common_modules =\
-	[
-		content_analyser,
-		face_classifier,
-		face_detector,
-		face_landmarker,
-		face_masker,
-		face_recognizer,
-		voice_extractor
+        common_modules =\
+        [
+                face_classifier,
+                face_detector,
+                face_landmarker,
+                face_masker,
+                face_recognizer,
+                voice_extractor
 	]
 	available_processors = [ get_file_name(file_path) for file_path in resolve_file_paths('facefusion/processors/modules') ]
 	processor_modules = get_processors_modules(available_processors)
