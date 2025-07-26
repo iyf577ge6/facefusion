@@ -8,7 +8,7 @@ import numpy
 import facefusion.jobs.job_manager
 import facefusion.jobs.job_store
 import facefusion.processors.core as processors
-from facefusion import config, content_analyser, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, voice_extractor, wording
+from facefusion import config, face_classifier, face_detector, face_landmarker, face_masker, face_recognizer, inference_manager, logger, process_manager, state_manager, video_manager, voice_extractor, wording
 from facefusion.audio import create_empty_audio_frame, get_voice_frame, read_static_voice
 from facefusion.common_helper import create_float_metavar
 from facefusion.common_helper import get_first
@@ -156,9 +156,8 @@ def post_process() -> None:
 	video_manager.clear_video_pool()
 	if state_manager.get_item('video_memory_strategy') in [ 'strict', 'moderate' ]:
 		clear_inference_pool()
-	if state_manager.get_item('video_memory_strategy') == 'strict':
-		content_analyser.clear_inference_pool()
-		face_classifier.clear_inference_pool()
+        if state_manager.get_item('video_memory_strategy') == 'strict':
+                face_classifier.clear_inference_pool()
 		face_detector.clear_inference_pool()
 		face_landmarker.clear_inference_pool()
 		face_masker.clear_inference_pool()
