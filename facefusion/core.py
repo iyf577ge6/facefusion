@@ -115,17 +115,17 @@ def pre_check() -> bool:
 
 
 def common_pre_check() -> bool:
-        common_modules =\
-        [
-                face_classifier,
-                face_detector,
-                face_landmarker,
-                face_masker,
-                face_recognizer,
-                voice_extractor
-        ]
+	common_modules =\
+	[
+		face_classifier,
+		face_detector,
+		face_landmarker,
+		face_masker,
+		face_recognizer,
+		voice_extractor
+	]
 
-        return all(module.pre_check() for module in common_modules)
+	return all(module.pre_check() for module in common_modules)
 
 
 def processors_pre_check() -> bool:
@@ -136,15 +136,15 @@ def processors_pre_check() -> bool:
 
 
 def force_download() -> ErrorCode:
-        common_modules =\
-        [
-                face_classifier,
-                face_detector,
-                face_landmarker,
-                face_masker,
-                face_recognizer,
-                voice_extractor
-        ]
+	common_modules =\
+	[
+		face_classifier,
+		face_detector,
+		face_landmarker,
+		face_masker,
+		face_recognizer,
+		voice_extractor
+	]
 	available_processors = [ get_file_name(file_path) for file_path in resolve_file_paths('facefusion/processors/modules') ]
 	processor_modules = get_processors_modules(available_processors)
 
@@ -413,7 +413,7 @@ def process_image(start_time : float) -> ErrorCode:
 
 
 def process_video(start_time : float) -> ErrorCode:
-        trim_frame_start, trim_frame_end = restrict_trim_frame(state_manager.get_item('target_path'), state_manager.get_item('trim_frame_start'), state_manager.get_item('trim_frame_end'))
+	trim_frame_start, trim_frame_end = restrict_trim_frame(state_manager.get_item('target_path'), state_manager.get_item('trim_frame_start'), state_manager.get_item('trim_frame_end'))
 
 	logger.debug(wording.get('clearing_temp'), __name__)
 	clear_temp_directory(state_manager.get_item('target_path'))
