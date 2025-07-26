@@ -26,15 +26,15 @@ def listen() -> None:
 
 
 def update_download_providers(download_providers : List[DownloadProvider]) -> gradio.CheckboxGroup:
-        common_modules =\
-        [
-                face_classifier,
-                face_detector,
-                face_landmarker,
-                face_recognizer,
-                face_masker,
-                voice_extractor
-        ]
+	common_modules =\
+	[
+		face_classifier,
+		face_detector,
+		face_landmarker,
+		face_recognizer,
+		face_masker,
+		voice_extractor
+	]
 	available_processors = [ get_file_name(file_path) for file_path in resolve_file_paths('facefusion/processors/modules') ]
 	processor_modules = get_processors_modules(available_processors)
 
