@@ -191,8 +191,8 @@ def post_process() -> None:
 	video_manager.clear_video_pool()
 	if state_manager.get_item('video_memory_strategy') in [ 'strict', 'moderate' ]:
 		clear_inference_pool()
-        if state_manager.get_item('video_memory_strategy') == 'strict':
-                pass
+	if state_manager.get_item('video_memory_strategy') == 'strict':
+		pass
 
 
 def colorize_frame(temp_vision_frame : VisionFrame) -> VisionFrame:
