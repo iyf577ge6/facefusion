@@ -19,6 +19,16 @@ Installation
 
 Be aware, the [installation](https://docs.facefusion.io/installation) needs technical skills and is not recommended for beginners. In case you are not comfortable using a terminal, our [Windows Installer](http://windows-installer.facefusion.io) and [macOS Installer](http://macos-installer.facefusion.io) get you started.
 
+### Kaggle Notebook (GPU)
+
+To run FaceFusion inside a Kaggle notebook using its GPU, enable the GPU accelerator in notebook settings and set a custom project name before running the installer:
+
+```python
+import os
+os.environ["FACEFUSION_NAME"] = "MyFaceApp"
+!python install.py --onnxruntime cuda
+```
+
 
 Usage
 -----
