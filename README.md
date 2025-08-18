@@ -7,18 +7,52 @@ FaceFusion
 [![Coverage Status](https://img.shields.io/coveralls/facefusion/facefusion.svg)](https://coveralls.io/r/facefusion/facefusion)
 ![License](https://img.shields.io/badge/license-OpenRAIL--AS-green)
 
-
 Preview
 -------
 
 ![Preview](https://raw.githubusercontent.com/facefusion/facefusion/master/.github/preview.png?sanitize=true)
 
-
 Installation
 ------------
 
-Be aware, the [installation](https://docs.facefusion.io/installation) needs technical skills and is not recommended for beginners. In case you are not comfortable using a terminal, our [Windows Installer](http://windows-installer.facefusion.io) and [macOS Installer](http://macos-installer.facefusion.io) get you started.
+The official [installation guide](https://docs.facefusion.io/installation) provides detailed information. A quick start on Linux/macOS:
 
+```bash
+git clone https://github.com/facefusion/facefusion.git
+cd facefusion
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python facefusion.py run
+```
+
+Expose the web interface over the internet with [Ngrok](https://ngrok.com/):
+
+```bash
+pip install pyngrok
+ngrok config add-authtoken <YOUR_NGROK_TOKEN>
+ngrok http 7860
+```
+
+Kaggle Notebook
+---------------
+
+A starter notebook is included at [`notebooks/facefusion_kaggle.ipynb`](notebooks/facefusion_kaggle.ipynb). Use it in a Kaggle environment to install FaceFusion, open an Ngrok tunnel and run the application:
+
+1. Upload the notebook to Kaggle or copy its cells into a new notebook.
+2. Replace `YOUR_NGROK_TOKEN` with your token.
+3. Run all cells and open the printed Ngrok URL to access the interface.
+
+Custom Project Name
+-------------------
+
+To replace every occurrence of `facefusion` with a name of your choice, run:
+
+```bash
+python rename_project.py
+```
+
+The script prompts for a new name and updates text files throughout the repository.
 
 Usage
 -----
@@ -53,7 +87,6 @@ commands:
     job-retry                                     retry a failed job
     job-retry-all                                 retry all failed jobs
 ```
-
 
 Documentation
 -------------
