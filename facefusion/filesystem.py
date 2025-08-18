@@ -98,9 +98,9 @@ def has_video(video_paths : List[str]) -> bool:
 
 
 def are_videos(video_paths : List[str]) -> bool:
-	if video_paths:
-		return any(map(is_video, video_paths))
-	return False
+        if video_paths:
+                return all(map(is_video, video_paths))
+        return False
 
 
 def filter_audio_paths(paths : List[str]) -> List[str]:
